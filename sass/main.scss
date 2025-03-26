@@ -1,0 +1,125 @@
+@import "../sass/helpers/variables";
+@import "../sass/helpers/fonts";
+@import "../sass/helpers/mixins";
+@import "../sass/helpers/extends";
+body{
+    font-family: sans-serif;
+    .header{
+        border-bottom: 1px solid $border-color;
+        .header-title{
+            @include text($header-title-font-size,$rubic-reguler-400,$title-color)
+        }
+        form{
+            .search-icon{
+                &:hover{
+                    .icon{
+                        path{
+                            fill: $blue-color;
+                        }
+                    }     
+                }
+            }   
+            .form-control{   
+                &::placeholder{
+                    text-align: center;
+                    @include text($defult-font-size,$rubic-reguler-400,$primary-color);
+                }
+                @media (max-width:991.98px) {
+                    display: none;
+                    
+                }
+            }
+
+        }
+        
+        .message-icon-wrapper{
+            position:relative;
+            .green-oval{
+                @extend .status-ovals;
+            }
+        }
+        .bell-icon-wrapper{
+            position: relative;
+            .pink-oval{
+                @extend .status-ovals;
+            }
+        }
+        .user-image{
+            border-radius: 50%;
+        }
+        .icon-link{
+            .icon {
+                path {
+                    transition: fill 0.2s ease;
+                }    
+            }
+            &:hover,&:active,&.clicked{
+                .icon{
+                    path{
+                        fill: $blue-color;
+                    }
+                }     
+            } 
+        } 
+    }
+    .logo{
+        border-inline-end: 1px solid $border-color;
+    }
+   .sidebar-content{
+    height: 100vh;
+    border-inline-end: 1px solid $border-color;
+    ul{
+        list-style: none;
+        li{   
+            .sidebar-link{
+                height: 68px;
+                display:flex;
+                align-items: center;
+                text-decoration: none;
+                svg{
+                    margin-inline-end: 17px;
+                    margin-inline-start: 26px;
+                }
+                .title{
+                    @include text($defult-font-size,$rubic-reguler-400,$primary-color)
+                }
+                .svg {
+                    path {
+                        transition: fill 0.2s ease;
+                    }    
+                }
+                &:hover,&:active,&.clicked{
+                    background-color: $bg-color;
+                    svg{
+                        path{
+                            fill:$blue-color
+                        }
+                    }
+                    .title{
+                        font-family: $rubic-medium-500;
+                    }
+                    border-inline-start: 3px solid $blue-color;
+                }
+            }
+          
+        }
+        
+    }
+   }
+   .content{
+    background-color: $bg-color;
+    
+   }
+   footer{
+    & > *:not(p)  {
+        opacity:$opacity-65 ;
+    }  
+    p{
+        @include text($defult-font-size,$rubic-reguler-400,$footer-color);
+    }
+   }
+   
+}
+
+    
+   
