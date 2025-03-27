@@ -17,33 +17,62 @@
 body {
   font-family: sans-serif;
 }
+body .sidebar {
+  position: fixed;
+  top: 0;
+  inset-inline-start: 0;
+  width: 242px;
+  height: 100vh;
+  border-inline-end: 1px solid #E8ECEF;
+}
+body .sidebar .logo {
+  height: 64px;
+}
+body .sidebar .nav .nav-item .nav-link {
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+body .sidebar .nav .nav-item .nav-link svg {
+  margin-inline-end: 17px;
+  margin-inline-start: 26px;
+}
+body .sidebar .nav .nav-item .nav-link .link-text {
+  font-size: 14px;
+  font-family: "rubic-reguler-400";
+  color: #778CA2;
+}
+body .sidebar .nav .nav-item .nav-link .svg path {
+  transition: fill 0.2s ease;
+}
+body .sidebar .nav .nav-item .nav-link:hover, body .sidebar .nav .nav-item .nav-link:active, body .sidebar .nav .nav-item .nav-link.clicked {
+  background-color: #F8FAFB;
+  border-inline-start: 3px solid #4D7CFE;
+}
+body .sidebar .nav .nav-item .nav-link:hover svg path, body .sidebar .nav .nav-item .nav-link:active svg path, body .sidebar .nav .nav-item .nav-link.clicked svg path {
+  fill: #4D7CFE;
+}
+body .sidebar .nav .nav-item .nav-link:hover .link-text, body .sidebar .nav .nav-item .nav-link:active .link-text, body .sidebar .nav .nav-item .nav-link.clicked .link-text {
+  font-family: "rubic-medium-500";
+}
+body .main-content {
+  margin-inline-start: 242px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 body .header {
   border-bottom: 1px solid #E8ECEF;
+  height: 64px;
 }
 body .header .header-title {
   font-size: 20px;
   font-family: "rubic-reguler-400";
   color: #252631;
 }
-body .header form .search-icon:hover .icon path {
-  fill: #4D7CFE;
-}
-body .header form .form-control::-moz-placeholder {
-  text-align: center;
-  font-size: 14px;
-  font-family: "rubic-reguler-400";
-  color: #778CA2;
-}
-body .header form .form-control::placeholder {
-  text-align: center;
-  font-size: 14px;
-  font-family: "rubic-reguler-400";
-  color: #778CA2;
-}
-@media (max-width: 991.98px) {
-  body .header form .form-control {
-    display: none;
-  }
+body .header button {
+  background: none;
+  border: none;
 }
 body .header .message-icon-wrapper {
   position: relative;
@@ -51,60 +80,27 @@ body .header .message-icon-wrapper {
 body .header .bell-icon-wrapper {
   position: relative;
 }
+body .header .icon-btn .icon path, body .header .icon-link .icon path {
+  transition: fill 0.2s ease;
+}
+body .header .icon-btn:hover .icon path, body .header .icon-btn:active .icon path, body .header .icon-btn.clicked .icon path, body .header .icon-link:hover .icon path, body .header .icon-link:active .icon path, body .header .icon-link.clicked .icon path {
+  fill: #4D7CFE;
+}
 body .header .user-image {
   border-radius: 50%;
 }
-body .header .icon-link .icon path {
-  transition: fill 0.2s ease;
-}
-body .header .icon-link:hover .icon path, body .header .icon-link:active .icon path, body .header .icon-link.clicked .icon path {
-  fill: #4D7CFE;
-}
-body .logo {
-  border-inline-end: 1px solid #E8ECEF;
-}
-body .sidebar-content {
-  height: 100vh;
-  border-inline-end: 1px solid #E8ECEF;
-}
-body .sidebar-content ul {
-  list-style: none;
-}
-body .sidebar-content ul li .sidebar-link {
-  height: 68px;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-body .sidebar-content ul li .sidebar-link svg {
-  margin-inline-end: 17px;
-  margin-inline-start: 26px;
-}
-body .sidebar-content ul li .sidebar-link .title {
-  font-size: 14px;
-  font-family: "rubic-reguler-400";
-  color: #778CA2;
-}
-body .sidebar-content ul li .sidebar-link .svg path {
-  transition: fill 0.2s ease;
-}
-body .sidebar-content ul li .sidebar-link:hover, body .sidebar-content ul li .sidebar-link:active, body .sidebar-content ul li .sidebar-link.clicked {
-  background-color: #F8FAFB;
-  border-inline-start: 3px solid #4D7CFE;
-}
-body .sidebar-content ul li .sidebar-link:hover svg path, body .sidebar-content ul li .sidebar-link:active svg path, body .sidebar-content ul li .sidebar-link.clicked svg path {
-  fill: #4D7CFE;
-}
-body .sidebar-content ul li .sidebar-link:hover .title, body .sidebar-content ul li .sidebar-link:active .title, body .sidebar-content ul li .sidebar-link.clicked .title {
-  font-family: "rubic-medium-500";
-}
 body .content {
+  flex-grow: 1;
+  overflow-y: auto;
   background-color: #F8FAFB;
 }
-body footer > *:not(p) {
+body .footer {
+  height: 61px;
+}
+body .footer > *:not(p) {
   opacity: 65%;
 }
-body footer p {
+body .footer p {
   font-size: 14px;
   font-family: "rubic-reguler-400";
   color: #98A9BC;
