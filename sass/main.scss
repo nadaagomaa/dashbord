@@ -2,6 +2,7 @@
 @import "../sass/helpers/fonts";
 @import "../sass/helpers/mixins";
 @import "../sass/helpers/extends";
+
 body{
     font-family: sans-serif;
     .sidebar {
@@ -11,6 +12,9 @@ body{
         width: 242px;
         height: 100vh;
         border-inline-end: 1px solid $border-color;
+        box-sizing: border-box;
+        overflow: hidden;
+        transition: width 0.3s ease;
         .logo{
             height: 64px;
         }
@@ -22,7 +26,7 @@ body{
                     align-items: center;
                     svg{
                         margin-inline-end: 17px;
-                        margin-inline-start: 26px;
+                        margin-inline-start: 15px;
                     }
                     .link-text{
                         @include text($defult-font-size,$rubic-reguler-400,$primary-color)
@@ -55,63 +59,81 @@ body{
         height: 100vh;
         display: flex;
         flex-direction: column;
-    }
-    .header {
-        border-bottom: 1px solid $border-color;
-        height: 64px;
-        .header-title{
-            @include text($header-title-font-size,$rubic-reguler-400,$title-color)
-        }
-        button{
-            background: none;
-            border: none;
-        }
-        .message-icon-wrapper{
-            position:relative;
-            .green-oval{
-                @extend .status-ovals;
+        .topbar {
+            border-bottom: 1px solid $border-color;
+            height: 64px;
+            .topbar-title{
+                @include text($topbar-title-font-size,$rubic-reguler-400,$title-color);
+                
             }
-        }
-        .bell-icon-wrapper{
-            position: relative;
-            .pink-oval{
-                @extend .status-ovals;
+            button{
+                background: none;
+                border: none;
             }
-        }
-        .icon-btn,.icon-link{
-            .icon {
-                path {
-                    transition: fill 0.2s ease;
-                }    
+            .message-icon-wrapper{
+                position:relative;
+                .green-oval{
+                    @extend .status-ovals;
+                }
             }
-            &:hover,&:active,&.clicked{
-                .icon{
-                    path{
-                        fill: $blue-color;
-                    }
-                }     
-            } 
+            .bell-icon-wrapper{
+                position: relative;
+                .pink-oval{
+                    @extend .status-ovals;
+                }
+            }
+            .icon-btn,.icon-link{
+                .icon {
+                    path {
+                        transition: fill 0.2s ease;
+                    }    
+                }
+                &:hover,&:active,&.clicked{
+                    .icon{
+                        path{
+                            fill: $blue-color;
+                        }
+                    }     
+                } 
+            }
+            .sidebar-toggler{
+                .icon {
+                    path {
+                        transition: fill 0.2s ease;
+                    }    
+                }
+                &:hover{
+                    .icon{
+                        path{
+                            fill: $blue-color;
+                        }
+                    }     
+                } 
+            }
+            .user-image{
+                border-radius: 50%;
+            }
+        
         }
-        .user-image{
-            border-radius: 50%;
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            background-color: $bg-color;
+            padding: 16px; 
+            box-sizing: border-box;
         }
-    
+        
+        .footer {
+        height: 61px;
+        & > *:not(p)  {
+            opacity:$opacity-65 ;
+        }  
+        p{
+            @include text($defult-font-size,$rubic-reguler-400,$footer-color);
+        }
+        }
     }
-    .content {
-        flex-grow: 1;
-        overflow-y: auto;
-        background-color: $bg-color;
-    }
-    
-    .footer {
-    height: 61px;
-    & > *:not(p)  {
-        opacity:$opacity-65 ;
-    }  
-    p{
-        @include text($defult-font-size,$rubic-reguler-400,$footer-color);
-    }
-    }
+   
 }
 
 

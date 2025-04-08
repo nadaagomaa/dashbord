@@ -8,7 +8,7 @@
   src: url("../../assets/webfonts/Rubik-Regular.ttf") format("truetype");
   font-style: normal;
 }
-.status-ovals, body .header .bell-icon-wrapper .pink-oval, body .header .message-icon-wrapper .green-oval {
+.status-ovals, body .main-content .topbar .bell-icon-wrapper .pink-oval, body .main-content .topbar .message-icon-wrapper .green-oval {
   position: absolute;
   top: -0.5px;
   inset-inline-end: -3px;
@@ -24,6 +24,9 @@ body .sidebar {
   width: 242px;
   height: 100vh;
   border-inline-end: 1px solid #E8ECEF;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: width 0.3s ease;
 }
 body .sidebar .logo {
   height: 64px;
@@ -35,7 +38,7 @@ body .sidebar .nav .nav-item .nav-link {
 }
 body .sidebar .nav .nav-item .nav-link svg {
   margin-inline-end: 17px;
-  margin-inline-start: 26px;
+  margin-inline-start: 15px;
 }
 body .sidebar .nav .nav-item .nav-link .link-text {
   font-size: 14px;
@@ -61,46 +64,54 @@ body .main-content {
   display: flex;
   flex-direction: column;
 }
-body .header {
+body .main-content .topbar {
   border-bottom: 1px solid #E8ECEF;
   height: 64px;
 }
-body .header .header-title {
+body .main-content .topbar .topbar-title {
   font-size: 20px;
   font-family: "rubic-reguler-400";
   color: #252631;
 }
-body .header button {
+body .main-content .topbar button {
   background: none;
   border: none;
 }
-body .header .message-icon-wrapper {
+body .main-content .topbar .message-icon-wrapper {
   position: relative;
 }
-body .header .bell-icon-wrapper {
+body .main-content .topbar .bell-icon-wrapper {
   position: relative;
 }
-body .header .icon-btn .icon path, body .header .icon-link .icon path {
+body .main-content .topbar .icon-btn .icon path, body .main-content .topbar .icon-link .icon path {
   transition: fill 0.2s ease;
 }
-body .header .icon-btn:hover .icon path, body .header .icon-btn:active .icon path, body .header .icon-btn.clicked .icon path, body .header .icon-link:hover .icon path, body .header .icon-link:active .icon path, body .header .icon-link.clicked .icon path {
+body .main-content .topbar .icon-btn:hover .icon path, body .main-content .topbar .icon-btn:active .icon path, body .main-content .topbar .icon-btn.clicked .icon path, body .main-content .topbar .icon-link:hover .icon path, body .main-content .topbar .icon-link:active .icon path, body .main-content .topbar .icon-link.clicked .icon path {
   fill: #4D7CFE;
 }
-body .header .user-image {
+body .main-content .topbar .sidebar-toggler .icon path {
+  transition: fill 0.2s ease;
+}
+body .main-content .topbar .sidebar-toggler:hover .icon path {
+  fill: #4D7CFE;
+}
+body .main-content .topbar .user-image {
   border-radius: 50%;
 }
-body .content {
-  flex-grow: 1;
+body .main-content .content {
+  flex: 1;
   overflow-y: auto;
   background-color: #F8FAFB;
+  padding: 16px;
+  box-sizing: border-box;
 }
-body .footer {
+body .main-content .footer {
   height: 61px;
 }
-body .footer > *:not(p) {
+body .main-content .footer > *:not(p) {
   opacity: 65%;
 }
-body .footer p {
+body .main-content .footer p {
   font-size: 14px;
   font-family: "rubic-reguler-400";
   color: #98A9BC;
