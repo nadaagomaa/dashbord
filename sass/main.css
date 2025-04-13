@@ -8,7 +8,7 @@
   src: url("../../assets/webfonts/Rubik-Regular.ttf") format("truetype");
   font-style: normal;
 }
-.status-ovals, body .main-content .topbar .bell-icon-wrapper .pink-oval, body .main-content .topbar .message-icon-wrapper .green-oval {
+.status-ovals {
   position: absolute;
   top: -0.5px;
   inset-inline-end: -3px;
@@ -16,6 +16,9 @@
 
 body {
   font-family: sans-serif;
+}
+body .dashboard-ico, body .MsgIco {
+  filter: brightness(0) saturate(100%) invert(62%) sepia(21%) saturate(420%) hue-rotate(170deg) brightness(84%) contrast(86%);
 }
 body .sidebar {
   position: fixed;
@@ -26,7 +29,7 @@ body .sidebar {
   border-inline-end: 1px solid #E8ECEF;
   box-sizing: border-box;
   overflow: hidden;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, margin-inline-start 0.3s ease;
 }
 body .sidebar .logo {
   height: 64px;
@@ -35,8 +38,9 @@ body .sidebar .nav .nav-item .nav-link {
   height: 64px;
   display: flex;
   align-items: center;
+  border: 3px solid rgba(0, 0, 0, 0);
 }
-body .sidebar .nav .nav-item .nav-link svg {
+body .sidebar .nav .nav-item .nav-link img {
   margin-inline-end: 17px;
   margin-inline-start: 15px;
 }
@@ -44,25 +48,36 @@ body .sidebar .nav .nav-item .nav-link .link-text {
   font-size: 14px;
   font-family: "rubic-reguler-400";
   color: #778CA2;
-}
-body .sidebar .nav .nav-item .nav-link .svg path {
-  transition: fill 0.2s ease;
+  transition: width 0.3s ease, margin-inline-start 0.3s ease;
 }
 body .sidebar .nav .nav-item .nav-link:hover, body .sidebar .nav .nav-item .nav-link:active, body .sidebar .nav .nav-item .nav-link.clicked {
   background-color: #F8FAFB;
-  border-inline-start: 3px solid #4D7CFE;
+  border-inline-start-color: #4D7CFE;
+  border-inline-end-color: #F8FAFB;
+  border-block-start-color: #F8FAFB;
+  border-block-end-color: #F8FAFB;
 }
-body .sidebar .nav .nav-item .nav-link:hover svg path, body .sidebar .nav .nav-item .nav-link:active svg path, body .sidebar .nav .nav-item .nav-link.clicked svg path {
-  fill: #4D7CFE;
+body .sidebar .nav .nav-item .nav-link:hover img, body .sidebar .nav .nav-item .nav-link:active img, body .sidebar .nav .nav-item .nav-link.clicked img {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(49%) saturate(5554%) hue-rotate(208deg) brightness(97%) contrast(107%);
 }
 body .sidebar .nav .nav-item .nav-link:hover .link-text, body .sidebar .nav .nav-item .nav-link:active .link-text, body .sidebar .nav .nav-item .nav-link.clicked .link-text {
   font-family: "rubic-medium-500";
 }
-body .main-content {
+body .main-content.collapsed-content {
+  margin-inline-start: 83px;
+}
+body .main-content.expanded-content {
   margin-inline-start: 242px;
+}
+body .sidebar.closed-sidenav {
+  width: 83px;
+}
+body .sidebar.opened-sidenav {
+  width: 242px;
+}
+body .main-content {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
+  transition: width 0.3s ease, margin-inline-start 0.3s ease;
 }
 body .main-content .topbar {
   border-bottom: 1px solid #E8ECEF;
@@ -80,20 +95,34 @@ body .main-content .topbar button {
 body .main-content .topbar .message-icon-wrapper {
   position: relative;
 }
+body .main-content .topbar .message-icon-wrapper .green-oval {
+  width: 8px;
+  height: 8px;
+  border: 1px solid white;
+  border-radius: 45%;
+  background-color: #6DD230;
+  position: absolute;
+  top: -0.5px;
+  inset-inline-end: -3px;
+}
 body .main-content .topbar .bell-icon-wrapper {
   position: relative;
 }
-body .main-content .topbar .icon-btn .icon path, body .main-content .topbar .icon-link .icon path {
-  transition: fill 0.2s ease;
+body .main-content .topbar .bell-icon-wrapper .pink-oval {
+  width: 8px;
+  height: 8px;
+  border: 1px solid white;
+  border-radius: 45%;
+  background-color: #FE4D97;
+  position: absolute;
+  top: -0.5px;
+  inset-inline-end: -3px;
 }
-body .main-content .topbar .icon-btn:hover .icon path, body .main-content .topbar .icon-btn:active .icon path, body .main-content .topbar .icon-btn.clicked .icon path, body .main-content .topbar .icon-link:hover .icon path, body .main-content .topbar .icon-link:active .icon path, body .main-content .topbar .icon-link.clicked .icon path {
-  fill: #4D7CFE;
+body .main-content .topbar .icon-btn:hover, body .main-content .topbar .icon-btn:active, body .main-content .topbar .icon-btn.clicked, body .main-content .topbar .icon-link:hover, body .main-content .topbar .icon-link:active, body .main-content .topbar .icon-link.clicked {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(49%) saturate(5554%) hue-rotate(208deg) brightness(97%) contrast(107%);
 }
-body .main-content .topbar .sidebar-toggler .icon path {
-  transition: fill 0.2s ease;
-}
-body .main-content .topbar .sidebar-toggler:hover .icon path {
-  fill: #4D7CFE;
+body .main-content .topbar .sidebar-toggler:hover {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(49%) saturate(5554%) hue-rotate(208deg) brightness(97%) contrast(107%);
 }
 body .main-content .topbar .user-image {
   border-radius: 50%;

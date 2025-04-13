@@ -5,6 +5,9 @@
 
 body{
     font-family: sans-serif;
+    .dashboard-ico,.MsgIco{
+        filter: brightness(0) saturate(100%) invert(62%) sepia(21%) saturate(420%) hue-rotate(170deg) brightness(84%) contrast(86%);
+    }
     .sidebar {
         position: fixed;
         top: 0;
@@ -14,7 +17,7 @@ body{
         border-inline-end: 1px solid $border-color;
         box-sizing: border-box;
         overflow: hidden;
-        transition: width 0.3s ease;
+       @include transition-effect;
         .logo{
             height: 64px;
         }
@@ -24,29 +27,27 @@ body{
                     height: 64px;
                     display:flex;
                     align-items: center;
-                    svg{
+                    border: 3px solid rgba(0,0,0,0);
+                    img{
                         margin-inline-end: 17px;
-                        margin-inline-start: 15px;
+                        margin-inline-start: 15px;        
                     }
                     .link-text{
-                        @include text($defult-font-size,$rubic-reguler-400,$primary-color)
-                    }
-                    .svg {
-                        path {
-                            transition: fill 0.2s ease;
-                        }    
-                    }
+                        @include text($defult-font-size,$rubic-reguler-400,$primary-color);
+                        @include transition-effect;
+                    } 
                     &:hover,&:active,&.clicked{
                         background-color: $bg-color;
-                        svg{
-                            path{
-                                fill:$blue-color
-                            }
-                        }
+                       img{
+                        @include blue-effect;
+                       }
                         .link-text{
                             font-family: $rubic-medium-500;
                         }
-                        border-inline-start: 3px solid $blue-color;
+                        border-inline-start-color: $blue-color;
+                        border-inline-end-color:$bg-color ;
+                        border-block-start-color: $bg-color;
+                        border-block-end-color: $bg-color;
                     }
                 }
               
@@ -54,17 +55,27 @@ body{
             
         }
     }
+    .main-content.collapsed-content {
+        margin-inline-start: $closed-sidenav;
+    }
+    
+    .main-content.expanded-content {
+        margin-inline-start: $opened-sidenav;
+    }
+    .sidebar.closed-sidenav {
+        width: $closed-sidenav;
+    }
+    .sidebar.opened-sidenav {
+        width: $opened-sidenav;
+    } 
     .main-content {
-        margin-inline-start: 242px;
         height: 100vh;
-        display: flex;
-        flex-direction: column;
+       @include transition-effect;
         .topbar {
             border-bottom: 1px solid $border-color;
             height: 64px;
             .topbar-title{
-                @include text($topbar-title-font-size,$rubic-reguler-400,$title-color);
-                
+                @include text($topbar-title-font-size,$rubic-reguler-400,$title-color);    
             }
             button{
                 background: none;
@@ -73,41 +84,23 @@ body{
             .message-icon-wrapper{
                 position:relative;
                 .green-oval{
-                    @extend .status-ovals;
+                   @include status-oval($active-status-color)
                 }
             }
             .bell-icon-wrapper{
                 position: relative;
                 .pink-oval{
-                    @extend .status-ovals;
+                   @include status-oval($bell-oval-color)
                 }
             }
             .icon-btn,.icon-link{
-                .icon {
-                    path {
-                        transition: fill 0.2s ease;
-                    }    
-                }
                 &:hover,&:active,&.clicked{
-                    .icon{
-                        path{
-                            fill: $blue-color;
-                        }
-                    }     
+                    @include blue-effect;
                 } 
             }
             .sidebar-toggler{
-                .icon {
-                    path {
-                        transition: fill 0.2s ease;
-                    }    
-                }
                 &:hover{
-                    .icon{
-                        path{
-                            fill: $blue-color;
-                        }
-                    }     
+                    @include blue-effect;
                 } 
             }
             .user-image{

@@ -3,3 +3,19 @@
     font-family: $family;
     color:$color;
 }
+  @mixin status-oval($color){
+    width:8px;
+    height: 8px;
+    border: 1px solid white; 
+    border-radius: 45%;  
+    background-color: $color;
+    position: absolute;
+    top: -.5px;
+    inset-inline-end: -3px;
+  }
+  @mixin blue-effect{
+    filter: brightness(0) saturate(100%) invert(55%) sepia(49%) saturate(5554%) hue-rotate(208deg) brightness(97%) contrast(107%);
+  }
+  @mixin transition-effect{
+    transition: width $animation-duration ease, margin-inline-start $animation-duration ease;
+  }
