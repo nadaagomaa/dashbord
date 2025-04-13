@@ -1,36 +1,37 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.querySelector('.sidebar');
     const sidebarToggler = document.querySelector('.sidebar-toggler');
-    const logoImg = document.querySelector('.logo img');
     const navLinks = document.querySelectorAll('.nav-link');
     const mainContent = document.querySelector('.main-content');
+    
 
     let isSidebarCollapsed = false;
+    function collapseSidebarOnResize() {
+        if (window.innerWidth < 992) {
+            if (!sidebar.classList.contains('closed-sidenav')) {
+                toggleSidebar();
+            }
+        } else {
+            if (sidebar.classList.contains('closed-sidenav')) {
+                toggleSidebar();
+            }
+        }
+    }
+
+    collapseSidebarOnResize();
+
+    window.addEventListener('resize', collapseSidebarOnResize);
 
     // Sidebar toggle
     function toggleSidebar() {
         isSidebarCollapsed = !isSidebarCollapsed;
 
-        // Switch between  collapsed/expanded 
+        // Switch between collapsed/expanded sidebar
         sidebar.classList.toggle('closed-sidenav', isSidebarCollapsed);
         sidebar.classList.toggle('opened-sidenav', !isSidebarCollapsed);
 
         mainContent.classList.toggle('collapsed-content', isSidebarCollapsed);
         mainContent.classList.toggle('expanded-content', !isSidebarCollapsed);
-
-        // Toggle visibility of link text
-        navLinks.forEach(link => {
-            const linkText = link.querySelector('.link-text');
-            if (linkText) {
-                linkText.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
-                linkText.style.opacity = isSidebarCollapsed ? 0 : 1;
-                linkText.style.visibility = isSidebarCollapsed ? 'hidden' : 'visible';
-            }
-        });
-
-        // change logo image based on sidebar state
-        logoImg.src = isSidebarCollapsed ? 'assets/imgs/io.png' : 'assets/imgs/ioTASK.png';
     }
 
     sidebarToggler.addEventListener('click', function (e) {
@@ -52,6 +53,15 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('topbar-title').textContent = clickedTitle;
         });
     });
+      
+    if (window.innerWidth < 992) {
+        if (!sidebar.classList.contains('closed-sidenav')) {
+             toggleSidebar();
+        }
+    }else{
+        sidebar.classList.add("opened-sidenav");
+
+    }
 });
 
 

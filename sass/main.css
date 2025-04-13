@@ -34,6 +34,39 @@ body .sidebar {
 body .sidebar .logo {
   height: 64px;
 }
+body .sidebar.closed-sidenav {
+  width: 83px;
+}
+body .sidebar.closed-sidenav .logo .opennedsidebar-logo {
+  display: none;
+}
+body .sidebar.closed-sidenav .logo .closedsidebar-logo {
+  display: block;
+}
+body .sidebar.closed-sidenav .nav-link .link-text {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+body .sidebar.opened-sidenav {
+  width: 242px;
+}
+@media (max-width: 991.98px) {
+  body .sidebar.opened-sidenav {
+    width: 180px;
+  }
+}
+body .sidebar.opened-sidenav .logo .opennedsidebar-logo {
+  display: block;
+}
+body .sidebar.opened-sidenav .logo .closedsidebar-logo {
+  display: none;
+}
+body .sidebar.opened-sidenav .nav-link .link-text {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 body .sidebar .nav .nav-item .nav-link {
   height: 64px;
   display: flex;
@@ -63,21 +96,20 @@ body .sidebar .nav .nav-item .nav-link:hover img, body .sidebar .nav .nav-item .
 body .sidebar .nav .nav-item .nav-link:hover .link-text, body .sidebar .nav .nav-item .nav-link:active .link-text, body .sidebar .nav .nav-item .nav-link.clicked .link-text {
   font-family: "rubic-medium-500";
 }
+body .main-content {
+  height: 100vh;
+  transition: width 0.3s ease, margin-inline-start 0.3s ease;
+}
 body .main-content.collapsed-content {
   margin-inline-start: 83px;
 }
 body .main-content.expanded-content {
   margin-inline-start: 242px;
 }
-body .sidebar.closed-sidenav {
-  width: 83px;
-}
-body .sidebar.opened-sidenav {
-  width: 242px;
-}
-body .main-content {
-  height: 100vh;
-  transition: width 0.3s ease, margin-inline-start 0.3s ease;
+@media (max-width: 991.98px) {
+  body .main-content.expanded-content {
+    margin-inline-start: 180px;
+  }
 }
 body .main-content .topbar {
   border-bottom: 1px solid #E8ECEF;
@@ -126,6 +158,11 @@ body .main-content .topbar .sidebar-toggler:hover {
 }
 body .main-content .topbar .user-image {
   border-radius: 50%;
+}
+@media (max-width: 991.98px) {
+  body .main-content .topbar .add-icon, body .main-content .topbar .app-icon, body .main-content .topbar .search {
+    display: none;
+  }
 }
 body .main-content .content {
   flex: 1;

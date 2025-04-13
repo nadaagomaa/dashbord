@@ -18,9 +18,45 @@ body{
         box-sizing: border-box;
         overflow: hidden;
        @include transition-effect;
-        .logo{
-            height: 64px;
+       .logo{
+        height: 64px;
         }
+       &.closed-sidenav {
+        width: $closed-sidenav;
+        .logo {
+            .opennedsidebar-logo{
+                display:none;
+            }
+            .closedsidebar-logo{
+                display: block;
+            }
+        }
+
+        .nav-link .link-text {
+            @include fadeable(0,hidden);
+        }
+        }
+        &.opened-sidenav {
+            width: $opened-sidenav;
+            @media (max-width:991.98px) {
+                width: 180px;
+            }
+    
+           .logo {
+                .opennedsidebar-logo{
+                    display:block;
+                }
+                .closedsidebar-logo{
+                    display: none;
+                }
+            }
+    
+            .nav-link .link-text {
+                @include fadeable(1,visible);
+            }
+        }
+       
+       
         .nav{
             .nav-item{   
                 .nav-link{
@@ -55,22 +91,19 @@ body{
             
         }
     }
-    .main-content.collapsed-content {
-        margin-inline-start: $closed-sidenav;
-    }
-    
-    .main-content.expanded-content {
-        margin-inline-start: $opened-sidenav;
-    }
-    .sidebar.closed-sidenav {
-        width: $closed-sidenav;
-    }
-    .sidebar.opened-sidenav {
-        width: $opened-sidenav;
-    } 
+   
     .main-content {
         height: 100vh;
        @include transition-effect;
+       &.collapsed-content {
+        margin-inline-start: $closed-sidenav;
+        }
+        &.expanded-content {
+            margin-inline-start: $opened-sidenav;
+            @media (max-width:991.98px) {
+                margin-inline-start: 180px;;
+            }
+        }
         .topbar {
             border-bottom: 1px solid $border-color;
             height: 64px;
@@ -105,6 +138,11 @@ body{
             }
             .user-image{
                 border-radius: 50%;
+            }
+            @media (max-width:991.98px) {
+                .add-icon,.app-icon,.search{
+                    display: none;
+                }
             }
         
         }

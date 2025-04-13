@@ -19,3 +19,8 @@
   @mixin transition-effect{
     transition: width $animation-duration ease, margin-inline-start $animation-duration ease;
   }
+  @mixin fadeable($opacity, $visibility) {
+    opacity: $opacity;
+    visibility: $visibility;
+    transition: opacity $animation-duration ease, visibility $animation-duration ease;
+}
