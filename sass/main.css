@@ -28,7 +28,6 @@ body .sidebar {
   height: 100vh;
   border-inline-end: 1px solid #E8ECEF;
   box-sizing: border-box;
-  overflow: hidden;
   transition: width 0.3s ease, margin-inline-start 0.3s ease;
 }
 body .sidebar .logo {
@@ -69,8 +68,6 @@ body .sidebar.opened-sidenav .nav-link .link-text {
 }
 body .sidebar .nav .nav-item .nav-link {
   height: 64px;
-  display: flex;
-  align-items: center;
   border-inline-start: 3px solid rgba(0, 0, 0, 0);
 }
 body .sidebar .nav .nav-item .nav-link img {
