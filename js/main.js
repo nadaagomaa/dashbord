@@ -3,8 +3,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const sidebarToggler = document.querySelector('.sidebar-toggler');
     const navLinks = document.querySelectorAll('.nav-link');
     const mainContent = document.querySelector('.main-content');
-    
+    const defaultActive = document.querySelector('.nav-link.active');
 
+    if (defaultActive) {
+        const defaultTitle = defaultActive.querySelector('.link-text')?.textContent.trim();
+        document.getElementById('topbar-title').textContent = defaultTitle;
+    }
+    
     let isSidebarCollapsed = false;
     function collapseSidebarOnResize() {
         if (window.innerWidth < 992) {
@@ -60,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }else{
         sidebar.classList.add("opened-sidenav");
-
     }
 });
 

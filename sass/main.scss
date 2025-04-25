@@ -65,7 +65,7 @@ body{
                         @include text($defult-font-size,$rubic-reguler-400,$primary-color);
                         @include transition-effect;
                     } 
-                    &:hover,&:active,&.clicked{
+                    &:hover,&.active{
                         background-color: $bg-color;
                        img{
                         @include blue-effect;
@@ -74,8 +74,9 @@ body{
                             font-family: $rubic-medium-500;
                         }
                         border-inline-start-color: $blue-color;
-                    }
-                }      
+                    }     
+                } 
+                
             }
         }
     }
